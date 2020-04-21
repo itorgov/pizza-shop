@@ -6,7 +6,11 @@
           <cart-contact-form ref="form"/>
         </b-col>
         <b-col>
-          <cart-order-details/>
+          <cart-order-details
+            :positions="getPositions()"
+            :delivery-fee="getDeliveryFee()"
+            :total="getTotalPrice()"
+          />
         </b-col>
       </b-row>
       <b-row class="mt-3">
@@ -54,6 +58,8 @@ export default {
 
   methods: {
     ...mapGetters('order', [
+      'getPositions',
+      'getDeliveryFee',
       'getTotalPrice',
     ]),
     ...mapActions('order', [

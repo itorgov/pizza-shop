@@ -25,11 +25,12 @@ export default {
     description: String,
     quantity: Number,
     price: Number,
+    currency: String,
   },
 
   computed: {
     formattedPrice() {
-      const price = this.formatPrice(this.price);
+      const price = this.formatPrice(this.price, this.currency);
       return this.quantity > 1 ? `${this.quantity} × ${price}` : price;
     },
   },

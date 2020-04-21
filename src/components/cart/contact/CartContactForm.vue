@@ -51,6 +51,9 @@ export default {
   },
 
   computed: {
+    user() {
+      return this.getUser();
+    },
     name: {
       get() {
         return this.getName();
@@ -81,6 +84,9 @@ export default {
   },
 
   methods: {
+    ...mapGetters('user', [
+      'getUser',
+    ]),
     ...mapGetters('order', [
       'getName',
       'getPhone',
@@ -100,6 +106,13 @@ export default {
       this.validate();
       return this.state.name && this.state.phone && this.state.address;
     },
+  },
+
+  mounted() {
+    if (this.user) {
+      this.name = this.user.name;
+      this.phone = this.user.phone || '';
+    }
   },
 };
 </script>

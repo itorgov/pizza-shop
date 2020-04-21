@@ -6,10 +6,10 @@ export default {
       'getCurrency',
     ]),
 
-    formatPrice(price) {
+    formatPrice(price, currency) {
       const formattedPrice = (price / 100).toFixed(2);
 
-      switch (this.getCurrency()) {
+      switch (currency || this.getCurrency()) {
         case 'usd':
           return `$${formattedPrice}`;
         case 'eur':

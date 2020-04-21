@@ -1,17 +1,17 @@
 <template>
   <b-row class="border-bottom py-3 align-items-center">
-    <b-col cols="8">
+    <b-col cols="12" md="5" lg="7" class="text-center text-md-left">
       <h4>{{ position.name }}</h4>
       <p class="text-muted mb-0">
         {{ position.description }}
       </p>
     </b-col>
-    <b-col class="text-right">
+    <b-col class="text-center text-md-right mt-4 mt-md-0" cols="12" md="4" lg="3">
       <b-button variant="outline-primary" @click="decrementQuantity()">-</b-button>
       <strong class="px-4">{{ position.quantity }}</strong>
       <b-button variant="outline-primary" @click="incrementQuantity()">+</b-button>
     </b-col>
-    <b-col class="text-right">
+    <b-col class="text-center text-md-right mt-4 mt-md-0" cols="12" md="3" lg="2">
       <h5 class="mb-0">
         {{ price }}
         <b-button

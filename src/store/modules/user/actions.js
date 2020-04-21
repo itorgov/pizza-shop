@@ -56,4 +56,9 @@ export default {
       return false;
     }
   },
+
+  lastOrders: async () => {
+    const response = await Vue.axios.get('/api/orders');
+    return response.data.data;
+  },
 };

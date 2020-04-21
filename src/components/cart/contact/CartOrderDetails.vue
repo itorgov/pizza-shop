@@ -6,29 +6,31 @@
 
     <b-list-group flush>
       <cart-order-details-item
-        v-for="position in getPositions()"
+        v-for="position in positions"
         :name="position.name"
         :description="position.description"
         :quantity="position.quantity"
         :price="position.price"
+        :currency="currency"
         :key="position.id"
       />
       <cart-order-details-item
         name="Delivery fee"
         :quantity="1"
-        :price="getDeliveryFee()"
+        :price="deliveryFee"
+        :currency="currency"
       />
       <cart-order-details-item
         name="Total"
         :quantity="1"
-        :price="getTotalPrice()"
+        :price="total"
+        :currency="currency"
       />
     </b-list-group>
   </b-card>
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
 import CartOrderDetailsItem from '@/components/cart/contact/CartOrderDetailsItem.vue';
 
 export default {
@@ -38,12 +40,11 @@ export default {
     CartOrderDetailsItem,
   },
 
-  methods: {
-    ...mapGetters('order', [
-      'getPositions',
-      'getDeliveryFee',
-      'getTotalPrice',
-    ]),
+  props: {
+    positions: Array,
+    deliveryFee: Number,
+    total: Number,
+    currency: String,
   },
 };
 </script>
