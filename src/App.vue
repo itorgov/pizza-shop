@@ -11,16 +11,12 @@ export default {
   name: 'App',
 
   methods: {
-    ...mapActions([
-      'restoreStore',
-    ]),
     ...mapActions('order', [
       'getDeliveryFee',
     ]),
   },
 
   created() {
-    this.restoreStore();
     this.getDeliveryFee();
   },
 };

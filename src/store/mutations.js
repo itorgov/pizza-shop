@@ -1,6 +1,8 @@
 export default {
-  initializeStore(state, restoredState) {
-    this.replaceState({ ...state, ...restoredState });
+  initializeStore(state) {
+    if (localStorage.getItem('store')) {
+      this.replaceState({ ...state, ...JSON.parse(localStorage.getItem('store')) });
+    }
   },
 
   updateCurrency: (state, currency) => {

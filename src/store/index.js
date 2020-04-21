@@ -17,9 +17,12 @@ const store = new Vuex.Store({
   modules,
 });
 
+store.commit('initializeStore');
+
 store.subscribe((mutation, state) => {
   localStorage.setItem('store', JSON.stringify({
     currency: state.currency,
+    user: state.user,
     order: state.order,
   }));
 });

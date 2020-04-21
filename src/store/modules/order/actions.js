@@ -36,7 +36,7 @@ export default {
 
   create: async ({ commit, getters, rootGetters }) => {
     try {
-      const response = await Vue.axios.post('/orders', {
+      const response = await Vue.axios.post('/api/orders', {
         name: getters.getName,
         phone: getters.getPhone,
         address: getters.getAddress,
@@ -69,7 +69,7 @@ export default {
   },
 
   getDeliveryFee: async ({ commit }) => {
-    const response = await Vue.axios.get('/delivery-fees');
+    const response = await Vue.axios.get('/api/delivery-fees');
 
     commit('updateDeliveryFee', response.data.data);
   },

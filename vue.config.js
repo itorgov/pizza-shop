@@ -1,4 +1,7 @@
 module.exports = {
+  devServer: {
+    host: 'pizza-shop.test',
+  },
   chainWebpack: (config) => {
     config.module
       .rule('vue')

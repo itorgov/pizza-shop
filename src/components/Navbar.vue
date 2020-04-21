@@ -35,10 +35,12 @@
           </b-dropdown-item>
         </b-nav-item-dropdown>
 
-        <b-nav-item-dropdown text="User" right>
-          <b-dropdown-item href="#">Profile</b-dropdown-item>
-          <b-dropdown-item href="#">Sign Out</b-dropdown-item>
+        <b-nav-item-dropdown :text="user.name" right v-if="isAuthenticated()">
+          <b-dropdown-item to="/profile">Profile</b-dropdown-item>
+          <b-dropdown-item @click="logout">Sign Out</b-dropdown-item>
         </b-nav-item-dropdown>
+        <b-nav-item to="/login" v-if="!isAuthenticated()">Sign In</b-nav-item>
+        <b-nav-item to="/register" v-if="!isAuthenticated()">Sign Up</b-nav-item>
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
@@ -50,9 +52,19 @@ import { mapGetters, mapActions } from 'vuex';
 export default {
   name: 'Navbar',
 
+  computed: {
+    user() {
+      return this.getUser();
+    },
+  },
+
   methods: {
     ...mapGetters([
       'getCurrency',
+    ]),
+    ...mapGetters('user', [
+      'isAuthenticated',
+      'getUser',
     ]),
     ...mapGetters('order', [
       'getPositionsQuantity',
@@ -60,6 +72,22 @@ export default {
     ...mapActions([
       'updateCurrency',
     ]),
+    ...mapActions('user', {
+      logoutUser: 'logout',
+    }),
+    async logout() {
+      const result = await this.logoutUser();
+
+      if (result) {
+        await this.$router.push('/');
+      } else {
+        this.$bvToast.toast('Something went wrong.', {
+          title: 'Error',
+          variant: 'danger',
+          solid: true,
+        });
+      }
+    },
   },
 };
 </script>

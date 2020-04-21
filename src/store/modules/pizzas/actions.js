@@ -2,7 +2,7 @@ import Vue from 'vue';
 
 export default {
   loadPage: async ({ commit, getters }) => {
-    const response = await Vue.axios.get('/pizzas', {
+    const response = await Vue.axios.get('/api/pizzas', {
       params: {
         page: getters.getCurrentPage,
       },
