@@ -1,6 +1,9 @@
 {
   "name": "pizza-shop",
   "version": "0.1.0",
+  "repository": "git@github.com:itorgov/pizza-shop.git",
+  "author": "Ivan Torgov <likecod@gmail.com> (https://itorgov.com)",
+  "license": "MIT",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
