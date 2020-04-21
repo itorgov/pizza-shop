@@ -1,0 +1,46 @@
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap-vue/dist/bootstrap-vue.css';
+import Vue from 'vue';
+import {
+  AlertPlugin,
+  ButtonPlugin,
+  ButtonGroupPlugin,
+  CardPlugin,
+  CarouselPlugin,
+  LayoutPlugin,
+  ModalPlugin,
+  NavbarPlugin,
+  SpinnerPlugin,
+  ImagePlugin,
+  InputGroupPlugin,
+  FormInputPlugin,
+  FormTextareaPlugin,
+  FormGroupPlugin,
+  TabsPlugin,
+  ListGroupPlugin,
+  PaginationPlugin,
+  BVToastPlugin,
+  OverlayPlugin,
+} from 'bootstrap-vue';
+
+[
+  AlertPlugin,
+  ButtonPlugin,
+  ButtonGroupPlugin,
+  CardPlugin,
+  CarouselPlugin,
+  LayoutPlugin,
+  ModalPlugin,
+  NavbarPlugin,
+  SpinnerPlugin,
+  ImagePlugin,
+  InputGroupPlugin,
+  FormInputPlugin,
+  FormTextareaPlugin,
+  FormGroupPlugin,
+  TabsPlugin,
+  ListGroupPlugin,
+  PaginationPlugin,
+  BVToastPlugin,
+  OverlayPlugin,
+].forEach((plugin) => Vue.use(plugin));
