@@ -4,6 +4,8 @@
 
 This is a simple web application for ordering pizza written in Vue.js.
 
+The backend for this project is placed in [itorgov/pizza-shop-backend](https://github.com/itorgov/pizza-shop-backend) repository.
+
 ## Project setup
 
 ```
